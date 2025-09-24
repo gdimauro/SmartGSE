@@ -1,0 +1,119 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smartgse"
+version = "1.0.0"
+description = "Sustainability Report and Carbon Tax Report platform"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "SmartGSE Team", email = "team@smartgse.org"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business",
+    "Topic :: Scientific/Engineering",
+]
+keywords = ["ESG", "sustainability", "carbon", "emissions", "reporting", "compliance"]
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "jinja2>=3.1.0",
+    "pydantic>=2.0.0",
+    "python-dateutil>=2.8.2",
+    "pyyaml>=6.0",
+    "reportlab>=4.0.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "openpyxl>=3.1.0",
+    "xlsxwriter>=3.1.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.0.0",
+]
+all = [
+    "smartgse[api,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/gdimauro/SmartGSE"
+Repository = "https://github.com/gdimauro/SmartGSE"
+Documentation = "https://github.com/gdimauro/SmartGSE/wiki"
+"Bug Tracker" = "https://github.com/gdimauro/SmartGSE/issues"
+
+[project.scripts]
+smartgse = "smartgse.cli:main"
+
+[tool.setuptools]
+packages = ["smartgse"]
+
+[tool.setuptools.package-data]
+smartgse = ["templates/*", "data/*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

@@ -1,0 +1,7 @@
+Source,Scope,CO2e (tonnes),Activity Data,Activity Unit,Emission Factor,Period Start,Period End,Location,Facility,Verified,Notes
+electricity,scope_2,125.5,300000,kWh,0.000421,2023-01-01,2023-12-31,New York,Main Office,true,Grid electricity consumption
+fuel_combustion,scope_1,89.2,35000,liters,0.00255,2023-01-01,2023-12-31,New York,Main Office,true,Natural gas heating
+transportation,scope_1,45.8,240000,km,0.000191,2023-01-01,2023-12-31,Various,Company Vehicles,false,Fleet vehicles gasoline
+business_travel,scope_3,67.3,350000,km,0.000192,2023-01-01,2023-12-31,Various,Air Travel,true,Employee business flights
+electricity,scope_2,78.9,188000,kWh,0.00042,2023-01-01,2023-12-31,California,West Coast Office,true,Grid electricity consumption
+waste,scope_3,12.4,124,tonnes,0.1,2023-01-01,2023-12-31,New York,Main Office,false,Office waste to landfill

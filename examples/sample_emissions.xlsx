@@ -1,0 +1,13 @@
+This is a placeholder for a sample Excel file with emission data. In a real implementation, this would be a proper Excel file with columns like:
+- Source (e.g., electricity, fuel_combustion, transportation)
+- Scope (e.g., scope_1, scope_2, scope_3)
+- CO2e (tonnes)
+- Activity Data
+- Activity Unit
+- Emission Factor
+- Period Start
+- Period End
+- Location
+- Facility
+- Verified
+- Notes

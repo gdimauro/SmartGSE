@@ -1,0 +1,1776 @@
+{
+  "name": "BilancioESG",
+  "version": "1.0.0",
+  "generated": "2025-09-24T17:22:18Z",
+  "entities": [
+    {
+      "name": "Organization",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "countryIso",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "sectorNace",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "esrsReportingScope",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "consolidationMethod",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "createdOn",
+          "dataType": "datetime",
+          "required": false
+        },
+        {
+          "name": "modifiedOn",
+          "dataType": "datetime",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Organization.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "LegalEntity",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "organizationId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "vat",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "countryIso",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "createdOn",
+          "dataType": "datetime",
+          "required": false
+        },
+        {
+          "name": "modifiedOn",
+          "dataType": "datetime",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/LegalEntity.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Site",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "legalEntityId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "geoLat",
+          "dataType": "number",
+          "required": false
+        },
+        {
+          "name": "geoLon",
+          "dataType": "number",
+          "required": false
+        },
+        {
+          "name": "gridRegion",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "waterBasinCode",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "biodiversitySensitivityClass",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "createdOn",
+          "dataType": "datetime",
+          "required": false
+        },
+        {
+          "name": "modifiedOn",
+          "dataType": "datetime",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Site.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "ReportingPeriod",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "fiscalYear",
+          "dataType": "int64",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "dataType": "date",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "dataType": "date",
+          "required": true
+        },
+        {
+          "name": "status",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "createdOn",
+          "dataType": "datetime",
+          "required": false
+        },
+        {
+          "name": "modifiedOn",
+          "dataType": "datetime",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/ReportingPeriod.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Unit",
+      "attributes": [
+        {
+          "name": "code",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "unitType",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Unit.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "GwpFactor",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "source",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "gas",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "horizon",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "factor",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "validFrom",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "validTo",
+          "dataType": "date",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/GwpFactor.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Scope3Category",
+      "attributes": [
+        {
+          "name": "code",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Scope3Category.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "EsrsDatapoint",
+      "attributes": [
+        {
+          "name": "code",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "esrsStandard",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "dataType",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "isMandatory",
+          "dataType": "boolean",
+          "required": false
+        },
+        {
+          "name": "xbrlTag",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/EsrsDatapoint.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Supplier",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "taxId",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "countryIso",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "sector",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "esgRating",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Supplier.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "countryIso",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "sector",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Customer.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Asset",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "siteId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "category",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "manufacturer",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "model",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "serial",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "lifeStart",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "lifeEnd",
+          "dataType": "date",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Asset.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Meter",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "siteId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "type",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "providerId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "calibrationDueOn",
+          "dataType": "date",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Meter.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Activity",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "periodId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "legalEntityId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "siteId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "businessUnitId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "scope",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "activityType",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "dataQuality",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "sourceSystem",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "evidenceId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "activityDate",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "description",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Activity.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "ActivityDetail_Electricity",
+      "attributes": [
+        {
+          "name": "activityId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "marketMethod",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "gridRegion",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "contractId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "meterId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "kWh",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "renewableSharePct",
+          "dataType": "number",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/ActivityDetail_Electricity.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "EmissionFactor",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "source",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "category",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "region",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "year",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "gas",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "unitInput",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "unitOutput",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "validFrom",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "validTo",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "uncertaintyPct",
+          "dataType": "number",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/EmissionFactor.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "EstimationFactor",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "method",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "forActivityType",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "logic",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/EstimationFactor.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "FactorSet",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "year",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "priorityOrder",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "notes",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/FactorSet.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "CalculationModel",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "version",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "rulesJson",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "factorsetId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "gwpSet",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/CalculationModel.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "CalculationRun",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "periodId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "modelId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "startedOn",
+          "dataType": "datetime",
+          "required": true
+        },
+        {
+          "name": "finishedOn",
+          "dataType": "datetime",
+          "required": false
+        },
+        {
+          "name": "status",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "byUser",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "logRef",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/CalculationRun.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Emission",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "activityId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "modelId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "gas",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "amount",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "co2e",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "method",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Emission.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "EmissionAggregate",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "periodId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "legalEntityId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "siteId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "scope",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "category",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "gas",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "co2e",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "normalizationBasis",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "intensity",
+          "dataType": "number",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/EmissionAggregate.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "EnergyCertificate",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "type",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "periodId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "siteId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "volumeMWh",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "vintage",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "supplierId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "serialRange",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "retiredOn",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "allocationNote",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/EnergyCertificate.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "EnergyContract",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "siteId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "supplierId",
+          "dataType": "guid",
+          "required": false
+        },
+        {
+          "name": "productType",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "startDate",
+          "dataType": "date",
+          "required": true
+        },
+        {
+          "name": "endDate",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "termsJson",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/EnergyContract.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Target",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "topic",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "baseYear",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "targetYear",
+          "dataType": "int64",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "absoluteOrIntensity",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "dataType": "number",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "sbtiValidated",
+          "dataType": "boolean",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Target.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Initiative",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "targetId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "type",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "start",
+          "dataType": "date",
+          "required": true
+        },
+        {
+          "name": "end",
+          "dataType": "date",
+          "required": false
+        },
+        {
+          "name": "owner",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "expectedCO2eReduction",
+          "dataType": "number",
+          "required": false
+        },
+        {
+          "name": "capex",
+          "dataType": "number",
+          "required": false
+        },
+        {
+          "name": "opex",
+          "dataType": "number",
+          "required": false
+        },
+        {
+          "name": "npv",
+          "dataType": "number",
+          "required": false
+        },
+        {
+          "name": "status",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Initiative.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "DataSource",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/DataSource.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "IngestionJob",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "dataSourceId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "schedule",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "lastRun",
+          "dataType": "datetime",
+          "required": false
+        },
+        {
+          "name": "rowsIn",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "rowsOK",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "dqIssues",
+          "dataType": "int64",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/IngestionJob.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Transformation",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "jobId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "mapJson",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "version",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Transformation.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "DataQualityRule",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "ruleType",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "expression",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "severity",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "autoFix",
+          "dataType": "boolean",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/DataQualityRule.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Approval",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "periodId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "approver",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "date",
+          "dataType": "date",
+          "required": true
+        },
+        {
+          "name": "scope",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "comment",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Approval.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Evidence",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "fileRef",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "sha256",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "collectedOn",
+          "dataType": "datetime",
+          "required": true
+        },
+        {
+          "name": "collectedBy",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "linkedTo",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Evidence.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Lock",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "periodId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "lockedOn",
+          "dataType": "datetime",
+          "required": true
+        },
+        {
+          "name": "lockedBy",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "checksum",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Lock.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "Disclosure",
+      "attributes": [
+        {
+          "name": "code",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "framework",
+          "dataType": "string",
+          "required": true
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/Disclosure.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "DisclosureRequirement",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "disclosureId",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "datapointCode",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "calculation",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "sourceEntities",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "xbrlTag",
+          "dataType": "string",
+          "required": false
+        },
+        {
+          "name": "materialityDependency",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/DisclosureRequirement.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    },
+    {
+      "name": "ReportTable",
+      "attributes": [
+        {
+          "name": "id",
+          "dataType": "guid",
+          "required": true
+        },
+        {
+          "name": "name",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "layoutJson",
+          "dataType": "string",
+          "required": true
+        },
+        {
+          "name": "ordering",
+          "dataType": "int64",
+          "required": false
+        },
+        {
+          "name": "notes",
+          "dataType": "string",
+          "required": false
+        }
+      ],
+      "partitions": [
+        {
+          "location": "entities/ReportTable.csv",
+          "fileFormat": "csv",
+          "refreshTime": null
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "name": "LegalEntity_Organization",
+      "fromEntity": "LegalEntity",
+      "fromAttribute": "organizationId",
+      "toEntity": "Organization",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Site_LegalEntity",
+      "fromEntity": "Site",
+      "fromAttribute": "legalEntityId",
+      "toEntity": "LegalEntity",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Asset_Site",
+      "fromEntity": "Asset",
+      "fromAttribute": "siteId",
+      "toEntity": "Site",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Meter_Site",
+      "fromEntity": "Meter",
+      "fromAttribute": "siteId",
+      "toEntity": "Site",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Activity_Period",
+      "fromEntity": "Activity",
+      "fromAttribute": "periodId",
+      "toEntity": "ReportingPeriod",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Activity_Site",
+      "fromEntity": "Activity",
+      "fromAttribute": "siteId",
+      "toEntity": "Site",
+      "toAttribute": "id"
+    },
+    {
+      "name": "CalcRun_Model",
+      "fromEntity": "CalculationRun",
+      "fromAttribute": "modelId",
+      "toEntity": "CalculationModel",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Emission_Activity",
+      "fromEntity": "Emission",
+      "fromAttribute": "activityId",
+      "toEntity": "Activity",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Emission_Model",
+      "fromEntity": "Emission",
+      "fromAttribute": "modelId",
+      "toEntity": "CalculationModel",
+      "toAttribute": "id"
+    },
+    {
+      "name": "EmissionAgg_Period",
+      "fromEntity": "EmissionAggregate",
+      "fromAttribute": "periodId",
+      "toEntity": "ReportingPeriod",
+      "toAttribute": "id"
+    },
+    {
+      "name": "EnergyCert_Site",
+      "fromEntity": "EnergyCertificate",
+      "fromAttribute": "siteId",
+      "toEntity": "Site",
+      "toAttribute": "id"
+    },
+    {
+      "name": "EnergyCert_Period",
+      "fromEntity": "EnergyCertificate",
+      "fromAttribute": "periodId",
+      "toEntity": "ReportingPeriod",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Initiative_Target",
+      "fromEntity": "Initiative",
+      "fromAttribute": "targetId",
+      "toEntity": "Target",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Approval_Period",
+      "fromEntity": "Approval",
+      "fromAttribute": "periodId",
+      "toEntity": "ReportingPeriod",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Lock_Period",
+      "fromEntity": "Lock",
+      "fromAttribute": "periodId",
+      "toEntity": "ReportingPeriod",
+      "toAttribute": "id"
+    },
+    {
+      "name": "IngestionJob_DataSource",
+      "fromEntity": "IngestionJob",
+      "fromAttribute": "dataSourceId",
+      "toEntity": "DataSource",
+      "toAttribute": "id"
+    },
+    {
+      "name": "Transformation_Job",
+      "fromEntity": "Transformation",
+      "fromAttribute": "jobId",
+      "toEntity": "IngestionJob",
+      "toAttribute": "id"
+    }
+  ],
+  "annotations": {
+    "description": "Common Data Model for ESG sustainability \u0026 carbon reporting (ESRS / GHG / IFRS S2)"
+  }
+}

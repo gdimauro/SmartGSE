@@ -1,0 +1,10 @@
+Category,Metric Name,Value,Unit,Target,Period Start,Period End,Description,Data Source,Verified
+environmental,Energy Intensity,2.5,MWh/employee,2.0,2023-01-01,2023-12-31,Energy consumption per employee,Facilities Management,true
+environmental,Water Usage,15000,cubic meters,12000,2023-01-01,2023-12-31,Total water consumption,Utilities,true
+environmental,Waste Diversion Rate,75,percentage,85,2023-01-01,2023-12-31,Percentage of waste diverted from landfill,Waste Management,true
+social,Employee Satisfaction,4.2,rating (1-5),4.5,2023-01-01,2023-12-31,Annual employee satisfaction survey,HR Department,true
+social,Diversity Ratio,35,percentage,40,2023-01-01,2023-12-31,Percentage of underrepresented groups,HR Department,true
+social,Training Hours per Employee,40,hours,50,2023-01-01,2023-12-31,Average training hours per employee,Learning & Development,false
+governance,Board Independence,80,percentage,75,2023-01-01,2023-12-31,Percentage of independent board members,Corporate Governance,true
+governance,Data Privacy Incidents,2,count,0,2023-01-01,2023-12-31,Number of data privacy incidents,IT Security,true
+governance,Supplier ESG Assessment,60,percentage,80,2023-01-01,2023-12-31,Percentage of suppliers assessed for ESG,Supply Chain,false
